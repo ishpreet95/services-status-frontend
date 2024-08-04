@@ -1,6 +1,6 @@
 import { payments } from "@/utils/dummyDataForTable";
-import { columns } from "./columns";
-import { DataTable } from "./data-table";
+import { columns } from "../components/service-status/columns";
+import DataTable from "../components/service-status/data-table";
 
 export default async function ServiceStatus() {
   const data = payments;
