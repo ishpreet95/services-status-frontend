@@ -78,3 +78,117 @@ export const payments: Payment[] = [
     email: "jack@enterprise.org",
   },
 ];
+
+export type TServiceStatusTypes = "up" | "down" | "fixing";
+
+export const serviceKeyName = "Service Name";
+
+export type TServiceRegions = {
+  [serviceKeyName]: string;
+  "region 1": TServiceStatusTypes;
+  "region 2": TServiceStatusTypes;
+  "region 3": TServiceStatusTypes;
+  "region 4": TServiceStatusTypes;
+  "region 5": TServiceStatusTypes;
+};
+
+export type TServiceStatus = TServiceRegions;
+
+export const dummyServiceStatusData: TServiceStatus[] = [
+  {
+    [serviceKeyName]: "Authentication Service",
+    "region 1": "up",
+    "region 2": "down",
+    "region 3": "up",
+    "region 4": "down",
+    "region 5": "fixing",
+  },
+  {
+    [serviceKeyName]: "Database Service",
+    "region 1": "up",
+    "region 2": "up",
+    "region 3": "up",
+    "region 4": "up",
+    "region 5": "up",
+  },
+  {
+    [serviceKeyName]: "Storage Service",
+    "region 1": "down",
+    "region 2": "down",
+    "region 3": "down",
+    "region 4": "fixing",
+    "region 5": "fixing",
+  },
+  {
+    [serviceKeyName]: "API Gateway",
+    "region 1": "fixing",
+    "region 2": "up",
+    "region 3": "down",
+    "region 4": "up",
+    "region 5": "down",
+  },
+  {
+    [serviceKeyName]: "Notification Service",
+    "region 1": "up",
+    "region 2": "fixing",
+    "region 3": "fixing",
+    "region 4": "up",
+    "region 5": "up",
+  },
+  {
+    [serviceKeyName]: "Payment Processing",
+    "region 1": "down",
+    "region 2": "up",
+    "region 3": "up",
+    "region 4": "down",
+    "region 5": "up",
+  },
+  {
+    [serviceKeyName]: "Search Service",
+    "region 1": "fixing",
+    "region 2": "fixing",
+    "region 3": "fixing",
+    "region 4": "fixing",
+    "region 5": "fixing",
+  },
+  {
+    [serviceKeyName]: "User Management",
+    "region 1": "up",
+    "region 2": "down",
+    "region 3": "down",
+    "region 4": "up",
+    "region 5": "down",
+  },
+  {
+    [serviceKeyName]: "Content Delivery Network",
+    "region 1": "down",
+    "region 2": "down",
+    "region 3": "up",
+    "region 4": "fixing",
+    "region 5": "up",
+  },
+  {
+    [serviceKeyName]: "Analytics Service",
+    "region 1": "fixing",
+    "region 2": "up",
+    "region 3": "up",
+    "region 4": "up",
+    "region 5": "down",
+  },
+  {
+    [serviceKeyName]: "Machine Learning Engine",
+    "region 1": "up",
+    "region 2": "up",
+    "region 3": "down",
+    "region 4": "down",
+    "region 5": "fixing",
+  },
+  {
+    [serviceKeyName]: "Logging Service",
+    "region 1": "down",
+    "region 2": "fixing",
+    "region 3": "up",
+    "region 4": "up",
+    "region 5": "up",
+  },
+];

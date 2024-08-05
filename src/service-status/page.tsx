@@ -1,9 +1,9 @@
-import { payments } from "@/utils/dummyDataForTable";
-import { columns } from "../components/service-status/columns";
-import DataTable from "../components/service-status/data-table";
+import { dummyServiceStatusData } from "@/utils/dummyDataForTable";
+import { columns } from "../components/service-status/service-status-columns";
+import DataTable from "../components/service-status/service-status-data-table";
 
 export default async function ServiceStatus() {
-  const data = payments;
+  const data = dummyServiceStatusData;
 
   return (
     <div className="container mx-auto py-10">
