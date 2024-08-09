@@ -1,6 +1,6 @@
 import { dummyServiceStatusData } from '@/utils/dummyDataForTable'
-import { columns } from '../components/service-status/service-status-columns'
-import DataTable from '../components/service-status/service-status-data-table'
+import { columns } from './service-status-columns'
+import DataTable from './service-status-data-table'
 
 export default async function ServiceStatus() {
   const data = dummyServiceStatusData
