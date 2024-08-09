@@ -1,9 +1,9 @@
-"use client";
+'use client'
 
-import { ColumnDef } from "@tanstack/react-table";
-import { ArrowUpDown, MoreHorizontal } from "lucide-react";
+import { ColumnDef } from '@tanstack/react-table'
+import { ArrowUpDown, MoreHorizontal } from 'lucide-react'
 
-import { Button } from "@/components/ui/button";
+import { Button } from '@/components/ui/button'
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -11,18 +11,19 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { DataTableColumnHeader } from "@/components/reusable/DataTableColumnHeader";
+} from '@/components/ui/dropdown-menu'
+import { DataTableColumnHeader } from '@/components/reusable/DataTableColumnHeader'
 import {
   TServiceRegions,
   TServiceStatusTypes,
   dummyServiceStatusData,
   serviceKeyName,
-} from "@/utils/dummyDataForTable";
+} from '@/utils/dummyDataForTable'
+import { getChipForStatus } from '@/utils/iconUtils'
 
 const ServiceRegionKeys = Object.keys(dummyServiceStatusData[0]) as Array<
   keyof TServiceRegions
->;
+>
 
 const preColumns: ColumnDef<TServiceRegions>[] = ServiceRegionKeys.map(
   (key) => {
@@ -30,28 +31,23 @@ const preColumns: ColumnDef<TServiceRegions>[] = ServiceRegionKeys.map(
       name: key,
       accessorKey: key,
       header: ({ column }) => {
-        return <DataTableColumnHeader column={column} title={key} />;
+        return <DataTableColumnHeader column={column} title={key} />
       },
       cell: ({ row }) => {
-        const status: TServiceStatusTypes = row.getValue(key);
-        const color = {
-          fixing: "text-yellow-500",
-          up: "text-green-500",
-          down: "text-red-500",
-        }[status];
+        const status: TServiceStatusTypes = row.getValue(key)
 
-        return <div className={`font-medium ${color}`}>{status}</div>;
+        return <div>{getChipForStatus(status)}</div>
       },
-    };
+    }
   }
-);
+)
 
 export const columns: ColumnDef<TServiceRegions>[] = [
   ...preColumns,
   {
-    id: "actions",
+    id: 'actions',
     cell: ({ row }) => {
-      const service = row.original;
+      const service = row.original
       return (
         <div className="text-right">
           <DropdownMenu>
@@ -73,7 +69,7 @@ export const columns: ColumnDef<TServiceRegions>[] = [
             </DropdownMenuContent>
           </DropdownMenu>
         </div>
-      );
+      )
     },
   },
-];
+]
