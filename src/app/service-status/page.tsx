@@ -6,8 +6,10 @@ export default async function ServiceStatus() {
   const data = dummyServiceStatusData
 
   return (
-    <div className="container mx-auto py-10">
-      <DataTable columns={columns} data={data} />
-    </div>
+    <>
+      <div className="container mx-auto py-10">
+        <DataTable columns={columns} data={data} />
+      </div>
+    </>
   )
 }
