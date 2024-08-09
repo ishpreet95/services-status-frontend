@@ -1,4 +1,4 @@
-"use client";
+'use client'
 
 import {
   ColumnDef,
@@ -11,7 +11,7 @@ import {
   getPaginationRowModel,
   getSortedRowModel,
   getFilteredRowModel,
-} from "@tanstack/react-table";
+} from '@tanstack/react-table'
 
 import {
   Table,
@@ -20,28 +20,28 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table";
+} from '@/components/ui/table'
 
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
 
-import { useState } from "react";
-import { DataTablePagination } from "@/components/reusable/Pagination";
-import { DataTableViewOptions } from "@/components/reusable/DataTableViewOptions";
-import { serviceKeyName } from "@/utils/dummyDataForTable";
+import { useState } from 'react'
+import { DataTablePagination } from '@/components/reusable/Pagination'
+import { DataTableViewOptions } from '@/components/reusable/DataTableViewOptions'
+import { serviceKeyName } from '@/utils/dummyDataForTable'
 
 interface DataTableProps<TData, TValue> {
-  columns: ColumnDef<TData, TValue>[];
-  data: TData[];
+  columns: ColumnDef<TData, TValue>[]
+  data: TData[]
 }
 
 export default function DataTable<TData, TValue>({
   columns,
   data,
 }: DataTableProps<TData, TValue>) {
-  const [sorting, setSorting] = useState<SortingState>([]);
-  const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
-  const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({});
+  const [sorting, setSorting] = useState<SortingState>([])
+  const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([])
+  const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({})
   const table = useReactTable({
     data,
     columns,
@@ -57,7 +57,7 @@ export default function DataTable<TData, TValue>({
       columnFilters,
       columnVisibility,
     },
-  });
+  })
 
   return (
     <div>
@@ -65,7 +65,7 @@ export default function DataTable<TData, TValue>({
         <Input
           placeholder="Filter services..."
           value={
-            (table.getColumn(serviceKeyName)?.getFilterValue() as string) ?? ""
+            (table.getColumn(serviceKeyName)?.getFilterValue() as string) ?? ''
           }
           onChange={(event) =>
             table.getColumn(serviceKeyName)?.setFilterValue(event.target.value)
@@ -89,7 +89,7 @@ export default function DataTable<TData, TValue>({
                             header.getContext()
                           )}
                     </TableHead>
-                  );
+                  )
                 })}
               </TableRow>
             ))}
@@ -99,7 +99,7 @@ export default function DataTable<TData, TValue>({
               table.getRowModel().rows.map((row) => (
                 <TableRow
                   key={row.id}
-                  data-state={row.getIsSelected() && "selected"}
+                  data-state={row.getIsSelected() && 'selected'}
                 >
                   {row.getVisibleCells().map((cell) => (
                     <TableCell key={cell.id}>
@@ -146,5 +146,5 @@ export default function DataTable<TData, TValue>({
         </Button>
       </div>
     </div>
-  );
+  )
 }
